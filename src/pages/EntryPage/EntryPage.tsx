@@ -10,6 +10,7 @@ function EntryPage() {
   const [participants, setParticipants] = useState<Participant[]>([]);
   const [selectedName, setSelectedName] = useState("");
   const [roomTitle, setRoomTitle] = useState("");
+  const [hostName, setHostName] = useState("");
   const [roomPassword, setRoomPassword] = useState("");
   const [isNameModalOpen, setIsNameModalOpen] = useState(false);
   const [isPasswordErrorModalOpen, setIsPasswordErrorModalOpen] =
@@ -42,12 +43,19 @@ function EntryPage() {
         return;
       }
       setRoomTitle(room.title);
+      const currentHost = room.hostName ?? "";
+      setHostName(currentHost);
       if (room.masterPassword !== roomPassword) {
         setIsPasswordErrorModalOpen(true);
         return;
       }
       const list = await listParticipants(roomId);
-      setParticipants(list);
+      const sorted = [...list].sort((a, b) => {
+        if (a.name === currentHost) return -1;
+        if (b.name === currentHost) return 1;
+        return a.name.localeCompare(b.name, "ko");
+      });
+      setParticipants(sorted);
       setVerified(true);
       if (room.isRevealed) {
         setIsRevealedModalOpen(true);
@@ -129,6 +137,7 @@ function EntryPage() {
               {participants.map((participant) => {
                 const selected = selectedName === participant.name;
                 const joined = participant.isJoined;
+                const isHost = participant.name === hostName;
                 const stateClass = selected
                   ? "entry-page__name-button--selected"
                   : joined
@@ -149,6 +158,18 @@ function EntryPage() {
                     }}
                     className={`entry-page__name-button ${stateClass}`}
                   >
+                    <span>{participant.name}</span>
+                    {isHost ? (
+                      <span className="entry-page__host">
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="entry-page__host-icon"
+                          fill="currentColor"
+                        >
+                          <path d="M12 3l2.47 5 5.53.8-4 3.89.94 5.51L12 16.9l-4.94 2.6.94-5.51-4-3.89 5.53-.8L12 3z" />
+                        </svg>
+                      </span>
+                    ) : null}
                     {joined ? (
                       <span className="entry-page__lock">
                         <svg
@@ -165,7 +186,6 @@ function EntryPage() {
                         </svg>
                       </span>
                     ) : null}
-                    <span>{participant.name}</span>
                   </button>
                 );
               })}

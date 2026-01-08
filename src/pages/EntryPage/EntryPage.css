@@ -103,6 +103,14 @@
   @apply h-3 w-3;
 }
 
+.entry-page__host {
+  @apply flex items-center text-[#F6C445];
+}
+
+.entry-page__host-icon {
+  @apply h-3 w-3;
+}
+
 .entry-page__result-list {
   @apply mt-4 space-y-2 text-sm;
 }
