@@ -13,7 +13,7 @@ import {
 } from 'firebase/firestore'
 import { db } from '../firebase'
 import type { Participant, Room } from './types'
-import { shuffle } from './utils'
+import { shuffle } from '../utils/utils'
 
 type CreateRoomInput = {
   title: string
