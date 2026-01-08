@@ -38,6 +38,7 @@ function AuthPage() {
   const [shareTitle, setShareTitle] = useState("");
   const [shareLink, setShareLink] = useState("");
   const [sharePassword, setSharePassword] = useState("");
+  const [shareMode, setShareMode] = useState<"new" | "reshare">("reshare");
   const [isRevealResultModalOpen, setIsRevealResultModalOpen] = useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] =
     useState("비밀번호가 일치하지 않습니다.");
@@ -269,6 +270,7 @@ function AuthPage() {
                       setShareTitle(room.title);
                       setShareLink(link);
                       setSharePassword(room.masterPassword ?? "");
+                      setShareMode("reshare");
                       setCopied(false);
                       setMessageCopied(false);
                       setIsShareModalOpen(true);
@@ -389,9 +391,13 @@ function AuthPage() {
           <div className="auth-page__modal-card auth-page__modal-card--blur">
             <div className="auth-page__modal-header">
               <div>
-                <h3 className="auth-page__modal-title">다시 공유하기</h3>
+                <h3 className="auth-page__modal-title">
+                  {shareMode === "new" ? "공유하기" : "다시 공유하기"}
+                </h3>
                 <p className="auth-page__modal-subtitle">
-                  방 링크를 다시 공유하세요.
+                  {shareMode === "new"
+                    ? "링크와 비밀번호를 공유하세요."
+                    : "방 링크를 다시 공유하세요."}
                 </p>
               </div>
               <button
@@ -506,6 +512,20 @@ function AuthPage() {
                 </button>
               </div>
             </div>
+            {shareMode === "new" ? (
+              <button
+                onClick={() =>
+                  navigate(
+                    `/entry?roomId=${encodeURIComponent(
+                      new URL(shareLink).searchParams.get("roomId") ?? ""
+                    )}&title=${encodeURIComponent(shareTitle)}`
+                  )
+                }
+                className="auth-page__modal-cta"
+              >
+                마니또 확인하기
+              </button>
+            ) : null}
           </div>
         </div>
       ) : null}
@@ -537,6 +557,7 @@ function AuthPage() {
                     setShareTitle(result.title);
                     setShareLink(link);
                     setSharePassword(room?.masterPassword ?? "");
+                    setShareMode("new");
                     setCopied(false);
                     setMessageCopied(false);
                     setIsShareModalOpen(true);
