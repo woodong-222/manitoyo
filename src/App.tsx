@@ -1,10 +1,12 @@
+import { Suspense, lazy } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import logo from "./assets/logo.svg";
-import AuthPage from "./pages/AuthPage/AuthPage";
-import CreatePage from "./pages/CreatePage/CreatePage";
-import EntryPage from "./pages/EntryPage/EntryPage";
-import HomePage from "./pages/HomePage/HomePage";
-import ResultPage from "./pages/ResultPage/ResultPage";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const CreatePage = lazy(() => import("./pages/CreatePage/CreatePage"));
+const EntryPage = lazy(() => import("./pages/EntryPage/EntryPage"));
+const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
+const ResultPage = lazy(() => import("./pages/ResultPage/ResultPage"));
 
 function App() {
   return (
@@ -26,13 +28,15 @@ function App() {
       </header>
 
       <div className="mx-auto w-full max-w-6xl px-5 pb-6 sm:px-8 lg:px-10">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/create" element={<CreatePage />} />
-          <Route path="/entry" element={<EntryPage />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/result" element={<ResultPage />} />
-        </Routes>
+        <Suspense fallback={<div className="py-10 text-center text-ink/60">로딩 중...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/create" element={<CreatePage />} />
+            <Route path="/entry" element={<EntryPage />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/result" element={<ResultPage />} />
+          </Routes>
+        </Suspense>
       </div>
     </div>
   );
