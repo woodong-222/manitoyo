@@ -41,7 +41,7 @@ function App() {
           </Routes>
         </Suspense>
       </div>
-      <footer className="pointer-events-none fixed bottom-[80px] right-6 z-50 text-right text-[11px] text-ink/70">
+      <footer className="pointer-events-none fixed bottom-[24px] right-6 z-50 text-right text-[11px] text-ink/70 sm:bottom-[60px]">
         ⓒ 2026-{currentYear} Woo. All rights reserved.
       </footer>
     </div>
