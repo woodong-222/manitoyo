@@ -271,7 +271,7 @@ function AuthPage() {
                     }}
                     className="auth-page__share"
                   >
-                    다시 공유하기
+                    공유하기
                   </button>
                 </div>
               ) : null}
@@ -477,7 +477,7 @@ function AuthPage() {
               }}
               className="auth-page__modal-cta"
             >
-              다시 공유하기
+              공유하기
             </button>
           </div>
         </div>

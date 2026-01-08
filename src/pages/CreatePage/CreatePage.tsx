@@ -207,14 +207,24 @@ function CreatePage() {
                   {messageCopied ? "메시지 복사됨" : "메시지 복사"}
                 </button>
                 <button
-                  onClick={async () => {
-                    if (navigator.share) {
-                      await navigator.share({
-                        title: "Manitoyo",
-                        text: `[${title}] 마니또 방이 개설되었어요!\n참여 링크: ${entryLink}\n모임 이름: ${title}\n방 비밀번호: ${masterPassword}`,
-                      });
+                  onClick={() => {
+                    const templateId = Number(
+                      import.meta.env.VITE_KAKAO_TEMPLATE_ID
+                    );
+                    if (!window.Kakao || !templateId) {
                       return;
                     }
+                    const urlPath = `/entry?roomId=${encodeURIComponent(
+                      roomId
+                    )}&title=${encodeURIComponent(title)}`;
+                    window.Kakao.Share.sendCustom({
+                      templateId,
+                      templateArgs: {
+                        password: masterPassword,
+                        name: title,
+                        url: urlPath,
+                      },
+                    });
                   }}
                   className="create-page__kakao"
                 >
