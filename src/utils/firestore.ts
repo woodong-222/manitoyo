@@ -11,7 +11,7 @@ import {
   where,
   writeBatch,
 } from 'firebase/firestore'
-import { db } from '../firebase'
+import { db } from './firebase'
 import type { Participant, Room } from './types'
 import { shuffle } from './utils'
 

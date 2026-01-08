@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="app-shell overflow-hidden">
       <header className="mx-auto flex w-full max-w-none flex-col gap-4 px-5 pb-6 pt-6 sm:px-20 lg:px-28">
-        <Link to="/" className="block">
+        <Link to="/" className="inline-flex w-fit">
           <div className="brand-font flex items-center gap-3">
             <img src={logo} alt="Manitoyo logo" className="h-10 w-10" />
             <div>
@@ -29,7 +29,9 @@ function App() {
       </header>
 
       <div className="mx-auto w-full max-w-6xl px-5 pb-6 sm:px-8 lg:px-10">
-        <Suspense fallback={<div className="py-10 text-center text-ink/60">로딩 중...</div>}>
+        <Suspense
+          fallback={<div className="py-10 text-center text-ink/60">로딩 중...</div>}
+        >
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/create" element={<CreatePage />} />
@@ -39,7 +41,7 @@ function App() {
           </Routes>
         </Suspense>
       </div>
-      <footer className="mx-auto w-full max-w-6xl px-5 pb-8 text-center text-[11px] text-ink/50 sm:px-8 lg:px-10">
+      <footer className="pointer-events-none fixed bottom-[60px] right-6 z-50 text-right text-[11px] text-ink/70">
         ⓒ 2026-{currentYear} Woo. All rights reserved.
       </footer>
     </div>
