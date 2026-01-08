@@ -80,7 +80,7 @@
 }
 
 .entry-page__name-button {
-  @apply flex w-full items-center justify-center gap-1 rounded-lg px-4 py-2 text-xs font-semibold shadow-soft transition;
+  @apply relative flex w-full items-center justify-center gap-1 overflow-visible rounded-lg px-4 py-2 text-xs font-semibold shadow-soft transition;
 }
 
 .entry-page__name-button--selected {
@@ -103,12 +103,12 @@
   @apply h-3 w-3;
 }
 
-.entry-page__host {
-  @apply flex items-center text-[#F6C445];
+.entry-page__host-icon {
+  @apply h-4 w-4;
 }
 
-.entry-page__host-icon {
-  @apply h-3 w-3;
+.entry-page__host-badge {
+  @apply absolute -left-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#F6C445] text-white shadow-soft;
 }
 
 .entry-page__result-list {

@@ -158,9 +158,8 @@ function EntryPage() {
                     }}
                     className={`entry-page__name-button ${stateClass}`}
                   >
-                    <span>{participant.name}</span>
                     {isHost ? (
-                      <span className="entry-page__host">
+                      <span className="entry-page__host-badge">
                         <svg
                           viewBox="0 0 24 24"
                           className="entry-page__host-icon"
@@ -170,6 +169,7 @@ function EntryPage() {
                         </svg>
                       </span>
                     ) : null}
+                    <span>{participant.name}</span>
                     {joined ? (
                       <span className="entry-page__lock">
                         <svg

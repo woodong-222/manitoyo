@@ -109,9 +109,7 @@ function CreatePage() {
               />
               <label className="create-page__list">
                 <div className="create-page__list-head">
-                  <span className="create-page__list-label">
-                    참여자 명단
-                  </span>
+                  <span className="create-page__list-label">참여자 명단</span>
                   <span className="create-page__list-hint">
                     첫 줄에 방장 이름을 적어주세요.
                   </span>
@@ -147,7 +145,8 @@ function CreatePage() {
               </div>
             </div>
             <div className="create-page__modal-info">
-              모임 이름: <span className="create-page__modal-strong">{title}</span>
+              모임 이름:{" "}
+              <span className="create-page__modal-strong">{title}</span>
             </div>
             <div className="create-page__modal-link">
               <div className="create-page__modal-link-text">{entryLink}</div>
@@ -214,7 +213,7 @@ function CreatePage() {
                     if (!window.Kakao || !templateId) {
                       return;
                     }
-                    const urlPath = `/entry?roomId=${encodeURIComponent(
+                    const urlPath = `entry?roomId=${encodeURIComponent(
                       roomId
                     )}&title=${encodeURIComponent(title)}`;
                     window.Kakao.Share.sendCustom({
