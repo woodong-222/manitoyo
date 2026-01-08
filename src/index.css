@@ -29,13 +29,6 @@ body {
     linear-gradient(120deg, #f7f4ef 0%, #fffaf2 60%, #f6efe3 100%);
 }
 
-@supports (-webkit-touch-callout: none) {
-  input,
-  textarea,
-  select {
-    font-size: 16px;
-  }
-}
 
 #root {
   height: 100%;
