@@ -1,0 +1,51 @@
+.home-page {
+  @apply mx-auto flex min-h-[68vh] max-w-3xl flex-col items-center justify-center text-center;
+}
+
+.home-page__wrap {
+  @apply relative flex w-full flex-col items-center;
+}
+
+.home-page__circle {
+  @apply pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70 shadow-soft;
+}
+
+.home-page__content {
+  @apply relative z-10 flex min-h-[600px] w-full flex-col items-center justify-center gap-6;
+}
+
+.home-page__brand {
+  @apply flex items-end gap-5;
+}
+
+.home-page__logo {
+  @apply h-36 w-36;
+}
+
+.home-page__titles {
+  @apply flex flex-col items-start gap-2 text-left;
+}
+
+.home-page__subtitle {
+  @apply text-xs font-semibold uppercase tracking-[0.35em] text-ink/40;
+}
+
+.home-page__title {
+  @apply text-4xl font-semibold text-ink sm:text-5xl;
+}
+
+.home-page__desc {
+  @apply text-base text-ink/60 sm:text-lg;
+}
+
+.home-page__actions {
+  @apply w-full max-w-sm;
+}
+
+.home-page__action-stack {
+  @apply flex flex-col gap-3;
+}
+
+.home-page__primary {
+  @apply rounded-md bg-ink px-4 py-3 text-center text-base font-semibold text-white shadow-heavy transition hover:-translate-y-0.5;
+}

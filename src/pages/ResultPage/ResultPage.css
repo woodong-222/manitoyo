@@ -1,0 +1,87 @@
+.result-page {
+  @apply mx-auto flex max-w-3xl flex-col gap-6;
+}
+
+.result-page__wrap {
+  @apply relative flex w-full flex-col items-center text-center;
+}
+
+.result-page__circle {
+  @apply pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70 shadow-soft;
+}
+
+.result-page__content {
+  @apply relative z-10 flex min-h-[600px] w-full flex-col items-center justify-center gap-6;
+}
+
+.result-page__panel {
+  @apply w-full max-w-[320px] text-left;
+}
+
+.result-page__title {
+  @apply text-2xl font-semibold text-ink;
+}
+
+.result-page__title-sm {
+  @apply text-xl font-semibold text-ink;
+}
+
+.result-page__subtitle {
+  @apply mt-2 text-sm text-ink/60;
+}
+
+.result-page__form {
+  @apply mt-6 flex flex-col gap-4;
+}
+
+.result-page__form-sm {
+  @apply mt-4 flex flex-col gap-4;
+}
+
+.result-page__submit {
+  @apply rounded-md bg-ink px-4 py-3 text-base font-semibold text-white shadow-heavy transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70;
+}
+
+.result-page__target {
+  @apply rounded-md border border-ink/10 bg-white px-3 py-3 text-sm text-ink/70;
+}
+
+.result-page__target-strong {
+  @apply font-semibold;
+}
+
+.result-page__ghost {
+  @apply rounded-md border border-ink/20 bg-white px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink/50 disabled:cursor-not-allowed disabled:opacity-70;
+}
+
+.result-page__status {
+  @apply rounded-md bg-sand/40 px-3 py-2 text-sm text-ink/70;
+}
+
+.result-page__summary {
+  @apply rounded-md border border-ink/10 bg-white px-3 py-3 text-sm text-ink/70;
+}
+
+.result-page__summary-row {
+  @apply flex flex-wrap items-center justify-between gap-2;
+}
+
+.result-page__summary-strong {
+  @apply font-semibold text-ink;
+}
+
+.result-page__summary-hint {
+  @apply text-xs text-ink/50;
+}
+
+.result-page__summary-desc {
+  @apply mt-2 text-xs text-ink/60;
+}
+
+.result-page__result-list {
+  @apply mt-4 space-y-2 text-sm;
+}
+
+.result-page__result-item {
+  @apply rounded-md border border-ink/10 bg-sand/20 px-3 py-2 text-ink/70;
+}
