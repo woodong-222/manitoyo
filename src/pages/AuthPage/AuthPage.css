@@ -1,5 +1,5 @@
 .auth-page {
-  @apply mx-auto flex max-w-3xl flex-col gap-6;
+  @apply mx-auto flex min-h-[68vh] max-w-3xl flex-col gap-6;
 }
 
 .auth-page__wrap {
