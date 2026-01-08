@@ -30,9 +30,7 @@ function App() {
 
       <div className="mx-auto w-full max-w-6xl px-5 pb-6 sm:px-8 lg:px-10">
         <Suspense
-          fallback={
-            <div className="py-10 text-center text-ink/60">로딩 중...</div>
-          }
+          fallback={<div className="py-10 text-center text-ink/60">로딩 중...</div>}
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -43,7 +41,7 @@ function App() {
           </Routes>
         </Suspense>
       </div>
-      <footer className="pointer-events-none fixed bottom-[60px] right-6 z-50 text-right text-[11px] text-ink/70">
+      <footer className="pointer-events-none fixed bottom-[80px] right-6 z-50 text-right text-[11px] text-ink/70">
         ⓒ 2026-{currentYear} Woo. All rights reserved.
       </footer>
     </div>

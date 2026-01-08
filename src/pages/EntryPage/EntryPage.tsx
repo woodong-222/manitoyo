@@ -116,8 +116,9 @@ function EntryPage() {
               <div>
                 <h3 className="entry-page__modal-title">이름 선택</h3>
                 <p className="entry-page__modal-subtitle">
-                  모든 참가자가 자신의 마니또를 확인하면, 방장이 전체 결과를
-                  공개할 수 있어요.
+                  모든 참여자가 자신의 마니또를 확인하면,
+                  <br />
+                  방장이 전체 결과를 공개할 수 있어요.
                 </p>
               </div>
               <button
