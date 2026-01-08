@@ -38,11 +38,9 @@ function AuthPage() {
   const [shareTitle, setShareTitle] = useState("");
   const [shareLink, setShareLink] = useState("");
   const [sharePassword, setSharePassword] = useState("");
-  const [isRevealResultModalOpen, setIsRevealResultModalOpen] =
-    useState(false);
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState(
-    "비밀번호가 일치하지 않습니다."
-  );
+  const [isRevealResultModalOpen, setIsRevealResultModalOpen] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] =
+    useState("비밀번호가 일치하지 않습니다.");
   const [copied, setCopied] = useState(false);
   const [messageCopied, setMessageCopied] = useState(false);
 
@@ -369,10 +367,7 @@ function AuthPage() {
             </div>
             <div className="auth-page__result-list">
               {participants.map((participant) => (
-                <div
-                  key={participant.id}
-                  className="auth-page__result-item"
-                >
+                <div key={participant.id} className="auth-page__result-item">
                   {participant.name} → {participant.targetName}
                 </div>
               ))}
@@ -384,7 +379,7 @@ function AuthPage() {
               }}
               className="auth-page__modal-cta"
             >
-              다시 진행하기
+              재매칭
             </button>
           </div>
         </div>
@@ -517,9 +512,9 @@ function AuthPage() {
       {isRematchConfirmOpen ? (
         <div className="auth-page__modal">
           <div className="auth-page__modal-card auth-page__modal-card--blur auth-page__modal-card--small">
-            <h3 className="auth-page__modal-title">다시 매칭</h3>
+            <h3 className="auth-page__modal-title">재매칭</h3>
             <p className="auth-page__modal-subtitle">
-              마니또를 다시 매칭하고 공개를 초기화합니다.
+              마니또를 재매칭하고 공개를 초기화합니다.
             </p>
             <div className="auth-page__modal-row">
               <button
@@ -552,7 +547,7 @@ function AuthPage() {
                 }}
                 className="auth-page__modal-button auth-page__modal-button--solid"
               >
-                다시 매칭
+                재매칭
               </button>
             </div>
           </div>

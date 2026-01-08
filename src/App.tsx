@@ -30,7 +30,9 @@ function App() {
 
       <div className="mx-auto w-full max-w-6xl px-5 pb-6 sm:px-8 lg:px-10">
         <Suspense
-          fallback={<div className="py-10 text-center text-ink/60">로딩 중...</div>}
+          fallback={
+            <div className="py-10 text-center text-ink/60">로딩 중...</div>
+          }
         >
           <Routes>
             <Route path="/" element={<HomePage />} />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import FormField from "../../components/FormField";
-import { getRoom, listParticipants } from "../../utils/firestore";
+import { getRoom, listParticipants, rematchToNewRoom } from "../../utils/firestore";
 import type { Participant } from "../../utils/types";
 import "./EntryPage.css";
 
@@ -17,6 +17,7 @@ function EntryPage() {
     useState(false);
   const [isRevealedModalOpen, setIsRevealedModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [rematchLoading, setRematchLoading] = useState(false);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [verified, setVerified] = useState(false);
@@ -232,6 +233,27 @@ function EntryPage() {
                 </div>
               ))}
             </div>
+            <button
+              onClick={async () => {
+                try {
+                  setRematchLoading(true);
+                  const result = await rematchToNewRoom(roomId);
+                  if (!result) return;
+                  setIsRevealedModalOpen(false);
+                  navigate(
+                    `/auth?roomId=${encodeURIComponent(
+                      result.roomId
+                    )}&title=${encodeURIComponent(result.title)}`
+                  );
+                } finally {
+                  setRematchLoading(false);
+                }
+              }}
+              className="entry-page__modal-cta"
+              disabled={rematchLoading}
+            >
+              {rematchLoading ? "재매칭 중..." : "재매칭"}
+            </button>
           </div>
         </div>
       ) : null}

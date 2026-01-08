@@ -76,7 +76,7 @@
 }
 
 .entry-page__name-grid {
-  @apply mt-5 grid max-h-[50vh] grid-cols-2 gap-2 overflow-y-auto text-xs;
+  @apply mt-5 grid max-h-[50vh] grid-cols-2 gap-2 overflow-x-visible overflow-y-auto pb-1 pl-2 pr-1 pt-2 text-xs;
 }
 
 .entry-page__name-button {
