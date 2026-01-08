@@ -9,8 +9,8 @@ import {
   setParticipantPassword,
   subscribeParticipants,
   subscribeRoom,
-} from "../../lib/firestore";
-import type { Participant, Room } from "../../lib/types";
+} from "../../utils/firestore";
+import type { Participant, Room } from "../../utils/types";
 import "./AuthPage.css";
 import kakaoLogo from "../../assets/kakaotalk.png";
 

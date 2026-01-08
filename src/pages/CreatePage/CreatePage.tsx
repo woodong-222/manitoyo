@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormField from "../../components/FormField";
-import { createRoom } from "../../lib/firestore";
+import { createRoom } from "../../utils/firestore";
 import kakaoLogo from "../../assets/kakaotalk.png";
 import "./CreatePage.css";
 

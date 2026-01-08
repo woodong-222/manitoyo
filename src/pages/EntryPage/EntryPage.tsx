@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import FormField from "../../components/FormField";
-import { getRoom, listParticipants } from "../../lib/firestore";
-import type { Participant } from "../../lib/types";
+import { getRoom, listParticipants } from "../../utils/firestore";
+import type { Participant } from "../../utils/types";
 import "./EntryPage.css";
 
 function EntryPage() {

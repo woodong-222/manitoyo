@@ -9,6 +9,7 @@ const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const ResultPage = lazy(() => import("./pages/ResultPage/ResultPage"));
 
 function App() {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="app-shell overflow-hidden">
       <header className="mx-auto flex w-full max-w-none flex-col gap-4 px-5 pb-6 pt-6 sm:px-20 lg:px-28">
@@ -38,6 +39,9 @@ function App() {
           </Routes>
         </Suspense>
       </div>
+      <footer className="mx-auto w-full max-w-6xl px-5 pb-8 text-center text-[11px] text-ink/50 sm:px-8 lg:px-10">
+        ⓒ 2026-{currentYear} Woo. All rights reserved.
+      </footer>
     </div>
   );
 }

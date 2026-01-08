@@ -5,8 +5,8 @@ import {
   revealRoom,
   subscribeParticipants,
   subscribeRoom,
-} from "../../lib/firestore";
-import type { Participant, Room } from "../../lib/types";
+} from "../../utils/firestore";
+import type { Participant, Room } from "../../utils/types";
 import "./ResultPage.css";
 
 function ResultPage() {
