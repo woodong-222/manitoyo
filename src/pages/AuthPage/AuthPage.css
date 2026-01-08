@@ -59,7 +59,11 @@
 }
 
 .auth-page__share {
-  @apply rounded-md border border-ink/20 bg-white px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink/50;
+  @apply flex items-center justify-center gap-2 rounded-md border border-ink/20 bg-white px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink/50;
+}
+
+.auth-page__share-icon {
+  @apply h-4 w-4;
 }
 
 .auth-page__modal {
